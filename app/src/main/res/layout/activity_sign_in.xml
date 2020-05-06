@@ -6,40 +6,31 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".SignInActivity">
-    <include
-            layout="@layout/credential_holders"
-            android:id="@+id/credentialHolder"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/include" android:layout_marginTop="50dp"
-            app:layout_constraintHorizontal_bias="0.0"/>
+
     <EditText
-            android:layout_width="366dp"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:ems="10"
-            android:id="@+id/passwordConfirm" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/credentialHolder"
-            app:layout_constraintTop_toBottomOf="@+id/credentialHolder" android:hint="password confirm"
-            android:layout_marginTop="5dp"/>
-    <ImageView
-            android:layout_width="33dp"
-            android:layout_height="0dp" app:srcCompat="@drawable/ic_password"
-            android:id="@+id/imageViewPass"
-            app:layout_constraintTop_toBottomOf="@+id/credentialHolder"
-            app:layout_constraintBottom_toBottomOf="@+id/passwordConfirm"
-            app:layout_constraintEnd_toEndOf="@+id/passwordConfirm"
-            android:layout_marginBottom="1dp" android:layout_marginRight="1dp" android:layout_marginEnd="1dp"/>
+        android:id="@+id/passwordConfirm"
+        android:layout_width="366dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="password confirm"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/password2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/password2"
+        app:layout_constraintTop_toBottomOf="@+id/password2" />
+
     <Button
-            android:text="@string/join"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/buttonJoin" app:layout_constraintEnd_toEndOf="@+id/imageViewPass"
-            app:layout_constraintStart_toStartOf="@+id/passwordConfirm"
-            app:layout_constraintTop_toBottomOf="@+id/passwordConfirm"
-            android:layout_marginTop="40dp" android:textColor="#FDFDFD"/>
+        android:id="@+id/buttonJoin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="@string/join"
+        android:textColor="#FDFDFD"
+        app:layout_constraintEnd_toEndOf="@+id/passwordConfirm"
+        app:layout_constraintStart_toStartOf="@+id/passwordConfirm"
+        app:layout_constraintTop_toBottomOf="@+id/passwordConfirm" />
+
     <ProgressBar
             style="?android:attr/progressBarStyle"
             android:visibility="invisible"
@@ -48,5 +39,30 @@
             android:id="@+id/progressBarSavingUser"
             app:layout_constraintEnd_toEndOf="@+id/buttonJoin" app:layout_constraintStart_toStartOf="@+id/buttonJoin"
             app:layout_constraintTop_toBottomOf="@+id/buttonJoin" android:layout_marginTop="50dp"/>
+
+    <EditText
+        android:id="@+id/mail2"
+        android:layout_width="366dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="@string/prompt_email"
+        android:inputType="textWebEmailAddress|textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.355"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/password2"
+        android:layout_width="366dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/prompt_password"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/mail2"
+        app:layout_constraintStart_toStartOf="@+id/mail2"
+        app:layout_constraintTop_toBottomOf="@+id/mail2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

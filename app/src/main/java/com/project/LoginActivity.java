@@ -19,7 +19,7 @@ import com.project.services.LoginService;
 import com.project.services.SubscribeService;
 import com.project.util.Util;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends AppCompatActivity{
     private EditText mail;
     private EditText password;
     private Button signUp;
@@ -33,13 +33,41 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
-        Util.updateUi(this, user);
+        //Util.updateUi(this, user);
         mail = findViewById(R.id.mail);
         password = findViewById(R.id.password);
         logIn = findViewById(R.id.login);
         signUp = findViewById(R.id.signIn);
         loading = findViewById(R.id.loading);
-        logIn.setOnClickListener(this);
+        logIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loading.setVisibility(View.VISIBLE);
+                mAuth.signInWithEmailAndPassword(mail.getText().toString(), password.getText().toString())
+                        .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                String TAG = "onComplete";
+                                if (task.isSuccessful()) {
+                                    // Sign in success, update UI with the signed-in user's information
+                                    Log.d(TAG, "signInWithEmail:success");
+                                    FirebaseUser user = mAuth.getCurrentUser();
+                                    Util.updateUi(LoginActivity.this, user);
+                                } else {
+                                    // If sign in fails, display a message to the user.
+                                    Log.w(TAG, "signInWithEmail:failure", task.getException());
+                                    Toast.makeText(LoginActivity.this, "Authentication failed.",
+                                            Toast.LENGTH_SHORT).show();
+                                    // ...
+                                }
+                                loading.setVisibility(View.INVISIBLE);
+
+                                // ...
+                            }
+                        });
+            }
+        });
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,31 +77,5 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         });
     }
 
-    @Override
-    public void onClick(View v) {
-        loading.setVisibility(View.VISIBLE);
-        mAuth.signInWithEmailAndPassword(mail.getText().toString(), password.getText().toString())
-                .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
 
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        String TAG = "onComplete";
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            Util.updateUi(LoginActivity.this, user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                            // ...
-                        }
-                        loading.setVisibility(View.INVISIBLE);
-
-                        // ...
-                    }
-                });
-    }
 }
