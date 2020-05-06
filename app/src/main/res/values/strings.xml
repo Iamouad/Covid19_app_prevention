@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">StayHome19</string>
+    <string name="prompt_password">password</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="action_sign_in">Sign Up</string>
+    <string name="action_log_in">Login</string>
+    <string name="be_safe">Be safe</string>
+    <string name="stay_home">Stay home</string>
+    <string name="join">Join Us</string>
+</resources>
