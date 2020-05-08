@@ -32,6 +32,4 @@ public class MainActivity extends AppCompatActivity {
         userRepository.ListenToUser(mAuth.getUid(), db);
     }
 
-
-
 }
