@@ -10,18 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.project.models.User;
 import com.project.services.UserService;
 import com.project.util.Util;
+
+import java.util.Date;
 
 public class SignInActivity extends AppCompatActivity implements View.OnClickListener{
     EditText mail;
@@ -67,7 +67,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
         System.out.println(mail.getText().toString());
-        newUser = new User(mail.getText().toString(), password.getText().toString(), null);
+        newUser = new User(mail.getText().toString(), password.getText().toString(), new Timestamp(new Date()));
         loading.setVisibility(View.VISIBLE);
         mAuth.createUserWithEmailAndPassword(mail.getText().toString(), password.getText().toString())
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {

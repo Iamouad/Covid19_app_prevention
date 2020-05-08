@@ -1,17 +1,15 @@
 package com.project.models;
 
+import com.google.firebase.Timestamp;
 import com.google.firebase.database.IgnoreExtraProperties;
-import com.google.firebase.firestore.ServerTimestamp;
-import com.google.type.Date;
 
 @IgnoreExtraProperties
 public class User {
     String mail;
     String password;
-    @ServerTimestamp
-    Date creationDate;
+    Timestamp creationDate;
 
-    public User(String mail, String password, Date timeStamp) {
+    public User(String mail, String password, Timestamp timeStamp) {
         this.mail = mail;
         this.password = password;
         this.creationDate = timeStamp;
@@ -20,11 +18,11 @@ public class User {
     public User() {
     }
 
-    public Date getTimeStamp() {
+    public Timestamp getTimeStamp() {
         return creationDate;
     }
 
-    public void setTimeStamp(Date timeStamp) {
+    public void setTimeStamp(Timestamp timeStamp) {
         this.creationDate = timeStamp;
     }
 
@@ -44,5 +42,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "mail='" + mail + '\'' +
+                ", password='" + password + '\'' +
+                ", creationDate=" + creationDate +
+                '}';
     }
 }
