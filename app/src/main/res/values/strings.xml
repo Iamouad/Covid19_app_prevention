@@ -8,4 +8,11 @@
     <string name="be_safe">Be safe</string>
     <string name="stay_home">Stay home</string>
     <string name="join">Join Us</string>
+
+    <string name="warning"> Le recommendation affichée peut évoluer suivant les informations en provenance des autorités de
+    santé et des chercheurs. Elle ne constitue pas un avis médical . En cas de doute, demandez conseil à votre médecin ou pharmacien </string>
+
+    <string name="Result"> Votre situation peut relever d\'un COVID19 . Vos symptomes nécessitent <u><b> une prise en charge rapide</b></u></string>
+
+    <string name="chezvous">#RestezChezVous - limitez les contacts avec d\'autres personnes. Le virus peut être propagé par des porteurs ne montrant pas de symptômes.</string>
 </resources>

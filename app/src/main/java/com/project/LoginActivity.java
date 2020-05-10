@@ -15,9 +15,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.project.repositories.QuestionRepository;
 import com.project.services.LoginService;
 import com.project.services.SubscribeService;
 import com.project.util.Util;
+
+import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity{
     private EditText mail;
@@ -54,6 +57,7 @@ public class LoginActivity extends AppCompatActivity{
                                     Log.d(TAG, "signInWithEmail:success");
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     Util.updateUi(LoginActivity.this, user);
+
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     Log.w(TAG, "signInWithEmail:failure", task.getException());
@@ -75,6 +79,8 @@ public class LoginActivity extends AppCompatActivity{
                 startActivity(intent);
             }
         });
+
+
     }
 
 
