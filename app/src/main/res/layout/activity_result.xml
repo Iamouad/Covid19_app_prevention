@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ResultActivity">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/design_"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/button_bg"
+
+
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:text="Allô YAQADA  : 080 100 47 47"
+
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/hor_under_create_button2"
+
+
+            app:layout_constraintHorizontal_bias="0.55"
+            app:layout_constraintLeft_toRightOf="@id/vertical_left_activity"
+
+            app:layout_constraintRight_toLeftOf="@id/vertical_right_submit_gl"
+            app:layout_constraintTop_toTopOf="@+id/hor_under_create_button" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/hor_under_create_button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.73" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/chezvous"
+            android:textSize="16sp"
+            android:textColor="#014979"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_right_activity"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/vertical_left_gl2"
+            app:layout_constraintTop_toTopOf="@+id/guideline15" />
+
+        <TextView
+            android:id="@+id/welcome_title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Restez chez vous."
+
+            android:textColor="#014979"
+            android:textSize="@dimen/title"
+            android:textStyle="bold"
+
+
+            app:layout_constraintLeft_toRightOf="@id/vertical_left_activity"
+            app:layout_constraintTop_toTopOf="@+id/guideline13" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vertical_left_gl2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.04" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.84" />
+
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:text="Select the type of company registration"
+
+
+            android:textColor="#014979"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/guideline21"
+            app:layout_constraintStart_toStartOf="@+id/vertical_left_activity"
+            app:layout_constraintTop_toTopOf="@+id/guideline12" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/ver_left_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.31" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/ver_right_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.7" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/hor_upon_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.02" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/hor_upon_dashboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.11" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/hor_upon_create_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.58" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/hor_under_create_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.65" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vertical_left_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.07" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vertical_right_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.96" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vertical_right_submit_gl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vertical_left_designs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.604" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/hor_upon_theme_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.21" />
+
+
+        <ImageView
+            android:id="@+id/toggle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitStart"
+            app:srcCompat="@drawable/ic_toggle_button"
+            app:layout_constraintBottom_toTopOf="@+id/hor_uder_logo"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toRightOf="@id/vertical_left_activity"
+            app:layout_constraintRight_toLeftOf="@id/ver_right_toggle"
+            app:layout_constraintTop_toTopOf="@+id/hor_upon_logo" />
+
+        <ImageView
+            android:layout_width="0dp"
+
+            android:layout_height="0dp"
+
+            android:scaleType="fitStart"
+
+
+            android:src="@drawable/logo"
+            app:layout_constraintBottom_toTopOf="@+id/hor_uder_logo"
+            app:layout_constraintEnd_toStartOf="@+id/ver_right_logo"
+            app:layout_constraintStart_toStartOf="@+id/ver_left_logo"
+            app:layout_constraintTop_toTopOf="@+id/hor_upon_logo"
+            app:layout_constraintVertical_bias="0.0" />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintBottom_toTopOf="@+id/hor_under_create_button"
+
+
+            app:layout_constraintEnd_toEndOf="@+id/design_2"
+            app:layout_constraintHorizontal_bias="0.87"
+            app:layout_constraintStart_toStartOf="@+id/design_2"
+            app:layout_constraintTop_toTopOf="@+id/design_2"
+            app:layout_constraintVertical_bias="0.52"
+            app:srcCompat="@drawable/ic_go_light" />
+
+        <TextView
+            android:id="@+id/welcome_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Resultat"
+            android:textColor="#014979"
+
+            android:textSize="@dimen/title"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/vertical_left_activity"
+            app:layout_constraintTop_toBottomOf="@id/hor_upon_dashboard"
+
+
+            />
+
+        <TextView
+            android:id="@+id/design_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/button_bg"
+
+
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:text="Allô SAMU : 141"
+
+
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/hor_under_create_button"
+            app:layout_constraintHorizontal_bias="0.55"
+
+
+            app:layout_constraintLeft_toRightOf="@id/vertical_left_activity"
+            app:layout_constraintRight_toLeftOf="@id/vertical_right_submit_gl"
+
+            app:layout_constraintTop_toBottomOf="@id/hor_upon_create_button" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/ver_right_toggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.15085158" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/hor_uder_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.05882353" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/hor_upon_fieldsRequired"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.17" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/warning"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_right_activity"
+            app:layout_constraintStart_toStartOf="@+id/vertical_left_gl2"
+            app:layout_constraintTop_toTopOf="@+id/hor_upon_theme_logo" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.4" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.77" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.93" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.7591241" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

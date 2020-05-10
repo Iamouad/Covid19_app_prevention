@@ -8,11 +8,19 @@ public class User {
     String mail;
     String password;
     Timestamp creationDate;
+    boolean suspect;
+    boolean confirmed;
+    boolean tested;
+
 
     public User(String mail, String password, Timestamp creationDate) {
         this.mail = mail;
         this.password = password;
         this.creationDate = creationDate;
+
+        this.suspect=false;
+        this.tested=false;
+        this.confirmed=false;
     }
 
     public User() {
@@ -41,6 +49,31 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public boolean isSuspect() {
+        return suspect;
+    }
+
+    public void setSuscpect(boolean suspect) {
+        this.suspect = suspect;
+    }
+
+    public boolean isTested() {
+        return tested;
+    }
+
+    public void setTested(boolean tested) {
+        this.tested = tested;
+    }
+
+    public boolean isConfirmed() {
+        return confirmed;
+    }
+
+    public void setConfirmed(boolean confirmed) {
+        this.confirmed = confirmed;
+    }
+
 
     @Override
     public String toString() {

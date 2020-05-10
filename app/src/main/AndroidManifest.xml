@@ -15,8 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".Form_questionning"></activity>
-        <activity android:name=".SignInActivity"></activity>
+
+        <activity android:name=".ResultActivity"/>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".FormulaireActivity" />
+        <activity android:name=".SignInActivity" />
+
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +28,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>
