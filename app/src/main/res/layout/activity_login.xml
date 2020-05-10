@@ -6,89 +6,369 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFFFFF">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ver_left_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.253" />
 
-    <include
-            layout="@layout/logo_layout"
-            android:id="@+id/include"
-            android:layout_width="187dp" android:layout_height="210dp"
-            app:layout_constraintStart_toStartOf="@+id/credentialHolder"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginLeft="5dp" android:layout_marginStart="5dp"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ver_right_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.747" />
 
-    <include
-            layout="@layout/credential_holders"
-            android:id="@+id/credentialHolder"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/include" android:layout_marginTop="48dp"
-            app:layout_constraintHorizontal_bias="0.0"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hor_upon_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.16" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hor_upon_dashboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.27" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hor_upon_selection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.36" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hor_under_selection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.43" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hor_upon_punch_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hor_under_punch_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.52" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hor_upon_create_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.54" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hor_under_create_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical_left_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.07" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical_right_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.93" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical_right_submit_gl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.44" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical_left_designs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.604" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hor_upon_apply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.62" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hor_under_apply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.68" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical_right_apply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.685" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hor_upon_theme_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7" />
+
+    
+
+    <ImageView
+        android:id="@+id/imageView"
+
+        android:layout_width="0dp"
+
+        android:layout_height="wrap_content"
+
+        android:scaleType="fitStart"
+        android:src="@drawable/logo"
+        app:layout_constraintHorizontal_bias="0.5"
+
+        app:layout_constraintLeft_toRightOf="@id/ver_left_logo"
+        app:layout_constraintRight_toLeftOf="@id/ver_right_logo"
+
+
+        app:layout_constraintTop_toBottomOf="@id/hor_upon_logo" />
+
+
+    <TextView
+        android:id="@+id/forgot_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Welcome,"
+        android:textColor="#014979"
+
+        android:textSize="@dimen/title"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@id/vertical_left_activity"
+        app:layout_constraintTop_toBottomOf="@id/hor_upon_dashboard"
+
+
+        />
+
+
+
+    <EditText
+        android:id="@+id/mail"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/edit_text_bg"
+
+
+        android:gravity="center_vertical"
+        android:hint="Username"
+        android:paddingLeft="60dp"
+
+        android:textSize="@dimen/normal"
+        app:layout_constraintBottom_toTopOf="@id/hor_under_selection"
+
+
+        app:layout_constraintLeft_toRightOf="@id/vertical_left_activity"
+
+        app:layout_constraintRight_toLeftOf="@id/vertical_right_activity"
+        app:layout_constraintTop_toBottomOf="@id/hor_upon_selection"
+
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+
+        app:srcCompat="@drawable/ic_username_logo"
+        app:layout_constraintBottom_toTopOf="@+id/mail"
+        app:layout_constraintEnd_toEndOf="@+id/mail"
+        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintStart_toStartOf="@+id/mail"
+        app:layout_constraintTop_toTopOf="@+id/hor_under_selection" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/edit_text_bg"
+
+        android:inputType="textPassword"
+        android:gravity="center_vertical"
+        android:hint="Password"
+        android:paddingLeft="60dp"
+
+
+        android:textSize="@dimen/normal"
+        app:layout_constraintBottom_toTopOf="@id/hor_under_punch_out"
+
+
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintLeft_toRightOf="@id/vertical_left_activity"
+        app:layout_constraintRight_toLeftOf="@id/vertical_right_activity"
+
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hor_upon_punch_out"
+
+
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        app:srcCompat="@drawable/ic_password_logo"
+        app:layout_constraintBottom_toTopOf="@id/password"
+        app:layout_constraintHorizontal_bias="0.055"
+
+        app:layout_constraintLeft_toRightOf="@id/vertical_left_activity"
+        app:layout_constraintRight_toLeftOf="@id/vertical_right_activity"
+        app:layout_constraintTop_toBottomOf="@id/password"
+
+        app:layout_constraintVertical_bias="0.5"
+        />
+
     <Button
-            android:id="@+id/login"
-            android:enabled="true"
-            android:layout_width="121dp"
-            android:layout_height="56dp"
-            android:layout_gravity="center"
-            android:text="@string/action_log_in"
-            android:background="#FF5722"
-            android:textColor="#ffffff"
-            android:textSize="24sp" android:textStyle="bold|italic"
-            app:layout_constraintTop_toBottomOf="@+id/rememberMe" android:layout_marginTop="32dp"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="50dp" android:layout_marginStart="50dp"/>
-    <CheckBox
-            android:text="Remember me"
-            android:layout_width="143dp"
-            android:layout_height="31dp"
-            android:id="@+id/rememberMe"
+        android:id="@+id/login"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/button_bg"
 
-            android:checked="true"
-            app:layout_constraintEnd_toEndOf="@+id/credentialHolder"
-            app:layout_constraintTop_toBottomOf="@+id/credentialHolder"
-            android:layout_marginTop="10dp"/>
+
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:text="Login"
+
+        android:textColor="#ffffff"
+        android:textSize="@dimen/normal"
+        app:layout_constraintBottom_toTopOf="@id/hor_under_create_button"
+        app:layout_constraintLeft_toRightOf="@id/vertical_left_activity"
+
+
+        app:layout_constraintRight_toLeftOf="@id/vertical_right_submit_gl"
+        app:layout_constraintTop_toBottomOf="@id/hor_upon_create_button"
+
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:srcCompat="@drawable/ic_go_light"
+        app:layout_constraintBottom_toTopOf="@id/login"
+        app:layout_constraintHorizontal_bias="0.19"
+
+        app:layout_constraintLeft_toRightOf="@id/login"
+        app:layout_constraintRight_toLeftOf="@id/login"
+        app:layout_constraintTop_toBottomOf="@id/login"
+
+        app:layout_constraintVertical_bias="0.5"
+
+
+        />
+
+    <Button
+        android:id="@+id/signIn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/button2_bg"
+
+
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:text="CREER UN COMPTE"
+        android:textColor="#306386"
+        android:textSize="@dimen/normal"
+        app:layout_constraintBottom_toTopOf="@id/hor_under_apply"
+        app:layout_constraintLeft_toRightOf="@id/vertical_left_activity"
+
+
+        app:layout_constraintRight_toLeftOf="@id/vertical_right_apply"
+        app:layout_constraintTop_toBottomOf="@id/hor_upon_apply"
+
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:srcCompat="@drawable/ic_go"
+        app:layout_constraintBottom_toTopOf="@id/signIn"
+        app:layout_constraintHorizontal_bias="0.112"
+
+        app:layout_constraintLeft_toRightOf="@id/signIn"
+        app:layout_constraintRight_toLeftOf="@id/signIn"
+        app:layout_constraintTop_toBottomOf="@id/signIn"
+
+        app:layout_constraintVertical_bias="0.5"
+
+
+        />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+
+        android:scaleX="1"
+        android:scaleY="1"
+
+
+        app:srcCompat="@drawable/ic__theme_logo"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hor_upon_theme_logo"
+
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ver_right_toggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="62dp" />
+
     <ProgressBar
-            android:id="@+id/loading"
-            android:visibility="gone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:layout_constraintEnd_toEndOf="@+id/credentialHolder"
-            app:layout_constraintStart_toStartOf="@+id/credentialHolder"
-            style="@style/Widget.AppCompat.ProgressBar" android:layout_marginRight="32dp"
-            android:layout_marginEnd="32dp"
-            app:layout_constraintBottom_toTopOf="@+id/signIn"
-            app:layout_constraintTop_toBottomOf="@+id/credentialHolder"/>
-    <Button
-            android:id="@+id/signIn"
-            android:enabled="true"
-            android:layout_width="121dp"
-            android:layout_height="56dp"
-            android:layout_gravity="center"
-            android:text="@string/action_sign_in"
-            android:background="#00BCD4"
-            android:textColor="#ffffff"
-            android:textSize="24sp" android:textStyle="bold|italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginRight="50dp" android:layout_marginEnd="50dp"
-            app:layout_constraintBottom_toBottomOf="@+id/login" app:layout_constraintTop_toTopOf="@+id/login"/>
-    <TextView
-            android:text="@string/be_safe"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView2" app:layout_constraintStart_toEndOf="@+id/include"
-            android:textSize="24sp" android:textColor="#2196F3" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="50dp" android:layout_marginLeft="30dp" android:layout_marginStart="30dp"
-            android:fontFamily="sans-serif-smallcaps"/>
-    <TextView
-            android:text="@string/stay_home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView3"
-            android:textColor="#FF5722" android:textSize="24sp"
-            app:layout_constraintStart_toEndOf="@+id/include" app:layout_constraintTop_toBottomOf="@+id/textView2"
-            android:layout_marginTop="30dp" android:layout_marginLeft="50dp" android:layout_marginStart="50dp"
-            android:fontFamily="sans-serif-smallcaps"/>
+        android:id="@+id/loading"
+        style="?android:attr/progressBarStyle"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:indeterminateDrawable="@drawable/progress"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/hor_under_create_button"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_left_designs"
+        app:layout_constraintStart_toStartOf="@+id/vertical_right_submit_gl"
+        app:layout_constraintTop_toTopOf="@+id/hor_upon_create_button" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

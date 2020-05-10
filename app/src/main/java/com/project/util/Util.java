@@ -3,12 +3,13 @@ package com.project.util;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseUser;
+import com.project.FormulaireActivity;
 import com.project.MainActivity;
 
 public class Util {
     public static void updateUi(AppCompatActivity context, FirebaseUser user){
         if(user != null){
-            Intent intent = new Intent(context, MainActivity.class);
+            Intent intent = new Intent(context, FormulaireActivity.class);
             context.startActivity(intent);
         }
     }
