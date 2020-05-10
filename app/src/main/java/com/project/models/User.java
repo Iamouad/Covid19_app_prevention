@@ -9,24 +9,22 @@ public class User {
     String password;
     Timestamp creationDate;
 
-    public User(String mail, String password, Timestamp timeStamp) {
+    public User(String mail, String password, Timestamp creationDate) {
         this.mail = mail;
         this.password = password;
-        this.creationDate = timeStamp;
+        this.creationDate = creationDate;
     }
 
     public User() {
     }
 
-    public Timestamp getTimeStamp() {
+    public Timestamp getCreationDate() {
         return creationDate;
     }
 
-    public void setTimeStamp(Timestamp timeStamp) {
-        this.creationDate = timeStamp;
+    public void setCreationDate(Timestamp creationDate) {
+        this.creationDate = creationDate;
     }
-
-
 
     public String getMail() {
         return mail;
