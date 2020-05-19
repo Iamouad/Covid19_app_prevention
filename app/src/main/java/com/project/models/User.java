@@ -13,10 +13,11 @@ public class User {
     boolean tested;
 
 
-    public User(String mail, String password, Timestamp timeStamp) {
+    public User(String mail, String password, Timestamp creationDate) {
         this.mail = mail;
         this.password = password;
-        this.creationDate = timeStamp;
+        this.creationDate = creationDate;
+
         this.suspect=false;
         this.tested=false;
         this.confirmed=false;
@@ -25,15 +26,13 @@ public class User {
     public User() {
     }
 
-    public Timestamp getTimeStamp() {
+    public Timestamp getCreationDate() {
         return creationDate;
     }
 
-    public void setTimeStamp(Timestamp timeStamp) {
-        this.creationDate = timeStamp;
+    public void setCreationDate(Timestamp creationDate) {
+        this.creationDate = creationDate;
     }
-
-
 
     public String getMail() {
         return mail;

@@ -100,6 +100,7 @@
         android:id="@+id/hor_under_first_line"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.45" />
 
@@ -241,6 +242,7 @@
 
         />
 
+>>>>>>> de8d756641c07239c78e8eb51e37f377a117c0fc
     <EditText
         android:id="@+id/mail2"
         android:layout_width="0dp"
