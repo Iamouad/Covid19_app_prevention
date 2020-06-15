@@ -88,13 +88,12 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(SignInActivity.this, "Authentication failed.",
+                            Toast.makeText(SignInActivity.this, "Sign-in failed.",
                                     Toast.LENGTH_SHORT).show();
                             finish();
                         }
                     }
                 });
     }
-
 
 }

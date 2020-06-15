@@ -15,4 +15,7 @@
     <string name="Result"> Votre situation peut relever d\'un COVID19 . Vos symptomes nécessitent <u><b> une prise en charge rapide</b></u></string>
 
     <string name="chezvous">#RestezChezVous - limitez les contacts avec d\'autres personnes. Le virus peut être propagé par des porteurs ne montrant pas de symptômes.</string>
+
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyAOs7hqT8ViRAwXsnZKqJeE-SbPHtsQmEM</string>
+
 </resources>

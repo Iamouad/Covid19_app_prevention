@@ -15,25 +15,18 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.project.models.User;
 import com.project.repositories.UserRepository;
+import com.project.sync.ReminderUtilities;
 
 public class MainActivity extends AppCompatActivity {
-    private FirebaseFirestore db;
-    private FirebaseAuth mAuth;
-    private User currentUser;
     private UserRepository userRepository;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        ReminderUtilities.scheduleReminder(this);
         Toast.makeText(this, "made it to Main", Toast.LENGTH_SHORT).show();
 
-        mAuth = FirebaseAuth.getInstance();
-        db = FirebaseFirestore.getInstance();
-        userRepository = new UserRepository();
-        userRepository.getCurrentUser(mAuth, db);
-        userRepository.getAllUsers(db);
-        userRepository.ListenToUser(mAuth.getUid(), db);
+
     }
 
 }
