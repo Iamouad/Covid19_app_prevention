@@ -68,7 +68,8 @@ public class Util {
                 }
 
                 if (res1.length() > 0) {
-                    res1.deleteCharAt(res1.length() - 2);
+                    //raha kanate 2 darnaha 3
+                    res1.deleteCharAt(res1.length() - 3);
                 }
                 return res1.toString();
             }

@@ -17,10 +17,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.project.models.Notification;
 import com.project.models.User;
 import com.project.services.UserService;
 import com.project.util.Util;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class SignInActivity extends AppCompatActivity implements View.OnClickListener{
@@ -33,6 +35,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     private FirebaseFirestore db;
     private UserService mUserService;
     private User newUser;
+    private Notification newNotif;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,10 +67,28 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
     }
 
+    public void addNotification(Notification notification, String id){
+        db=FirebaseFirestore.getInstance();
+        DocumentReference newNotifRef = db.collection("notifications")
+                .document(id);
+        newNotifRef.set(notification).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    System.out.println("notif created");
+                }
+                else {
+                    System.out.println("notif failed");
+                }
+            }
+        });
+    }
+
     @Override
     public void onClick(View v) {
         System.out.println(mail.getText().toString());
         newUser = new User(mail.getText().toString(), password.getText().toString(), new Timestamp(new Date()));
+        newNotif = new Notification("Notification title","notification body",new ArrayList<String>(),false);
         loading.setVisibility(View.VISIBLE);
         mAuth.createUserWithEmailAndPassword(mail.getText().toString(), password.getText().toString())
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -81,6 +102,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                             FirebaseUser user = mAuth.getCurrentUser();
                             try {
                                 addUser(newUser, user.getUid());
+                                addNotification(newNotif,Util.getMacAddr());
                             }catch (Exception e){
                                 System.out.println("cannot perform that");
                             }
