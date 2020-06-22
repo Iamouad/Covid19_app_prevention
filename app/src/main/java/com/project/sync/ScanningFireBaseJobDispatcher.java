@@ -11,9 +11,11 @@ import android.os.AsyncTask;
 import android.util.Log;
 import com.firebase.jobdispatcher.JobParameters;
 import com.firebase.jobdispatcher.JobService;
+import com.project.repositories.UserRepository;
 
 public class ScanningFireBaseJobDispatcher extends JobService {
     String TAG = "ScanningFireBaseJobDispatcher";
+    UserRepository userRepository;
     AsyncTask<Void, Void, Boolean> mAsyncTask;
     BluetoothAdapter mBluetoothAdapter;
     BroadcastReceiver mBroadcastReceiver3;
@@ -23,6 +25,7 @@ public class ScanningFireBaseJobDispatcher extends JobService {
     @Override
     public boolean onStartJob(final JobParameters job) {
         ////////////////////
+        userRepository = new UserRepository();
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         result = false;
 
@@ -66,6 +69,7 @@ public class ScanningFireBaseJobDispatcher extends JobService {
                      System.out.println("sleeping.....");
                      Thread.sleep(1000*20);
                      unregisterReceiver(mBroadcastReceiver3);
+                     userRepository.notificationIsReady(ScanningFireBaseJobDispatcher.this);
                  } catch (InterruptedException e) {
                      e.printStackTrace();
                  }

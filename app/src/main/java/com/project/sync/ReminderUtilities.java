@@ -46,7 +46,6 @@ public class ReminderUtilities {
     private static final int REMINDER_INTERVAL_SECONDS = (int) (TimeUnit.MINUTES.toSeconds(REMINDER_INTERVAL_MINUTES));
     private static final int SYNC_FLEXTIME_SECONDS = REMINDER_INTERVAL_SECONDS;
     private static final long INTERVAL_STAMP = 2 * 1000 * 60; // 1 min
-    private static final String REMINDER_JOB_TAG = "reminder_tag";
 
     private static boolean sInitialized;
 
@@ -55,7 +54,7 @@ public class ReminderUtilities {
     // in a context. This method will use FirebaseJobDispatcher to schedule a job that repeats roughly
     // every REMINDER_INTERVAL_SECONDS when the phone is charging. It will trigger WaterReminderFirebaseJobService
     // Checkout https://github.com/firebase/firebase-jobdispatcher-android for an example
-    synchronized public static void scheduleReminder(@NonNull final Context context) {
+    synchronized public static void scheduleReminder(@NonNull final Context context, final String tag) {
 
 
         // COMPLETED (17) If the job has already been initialized, return
@@ -80,10 +79,11 @@ public class ReminderUtilities {
         Job constraintReminderJob = dispatcher.newJobBuilder()
                 /* The Service that will be used to write to preferences */
                 .setService(ScanningFireBaseJobDispatcher.class)
+                //.setService()
                 /*
                  * Set the UNIQUE tag used to identify this Job.
                  */
-                .setTag(REMINDER_JOB_TAG)
+                .setTag(tag)
                 /*
                  * Network constraints on which this Job should run. In this app, we're using the
                  * device charging constraint so that the job only executes if the device is
@@ -152,6 +152,7 @@ public class ReminderUtilities {
         }
     }
 
+    /// #optional
     public static void showStackDevices(){
         if(devices.size() > 0){
             System.out.println("showing devices ============> ");

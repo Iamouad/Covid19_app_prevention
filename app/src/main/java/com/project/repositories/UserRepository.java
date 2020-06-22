@@ -1,21 +1,22 @@
 package com.project.repositories;
 
-import android.location.Location;
+import android.content.Context;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.*;
-import com.project.gps.GpsPermissionChecker;
 import com.project.gps.MyActualLocation;
 import com.project.models.DeviceAppearance;
 import com.project.models.User;
 import com.project.services.UserService;
+import com.project.util.NotificationUtils;
 import com.project.util.Util;
 
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ public class UserRepository implements UserService {
     FirebaseFirestore db;
     FirebaseAuth mAuth;
     MyActualLocation myActualLocation;
+    final String TAG="UserRepo";
     public UserRepository() {
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
@@ -106,6 +108,7 @@ public class UserRepository implements UserService {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
+
                     if (!task.getResult().isEmpty()) {
                         System.out.println("the member is using the app");
                         exist[0] = true;
@@ -120,27 +123,80 @@ public class UserRepository implements UserService {
     public void addContactedDevice(DeviceAppearance dev) {
         /////////////////check if user using the app...
         System.out.println("getting the Last location.......");
-                ///////////
-            try {
+                ///////////if(isUsingTheApp(dev.getMacAddr))
 
-                db.collection("ContactedPersons").document(Util.getMacAddr()).collection("Contacts").document().set(dev).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            System.out.println("a new contacted person added to database");
-                        } else {
-                            System.out.println(" cannot add a contacted person to database");
+                try {
+
+                    db.collection("ContactedPersons").document(Util.getMacAddr()).collection("Contacts").document().set(dev).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                System.out.println("a new contacted person added to database");
+                            } else {
+                                System.out.println(" cannot add a contacted person to database");
+                            }
                         }
+                    });
+                }catch (Exception ex){
+                    System.out.println("exception ===============> adding contactedPersons");
+                    System.out.println(ex.getMessage());
+                }
+            }
+
+    @Override
+    public void notificationIsReady(final Context context) {
+        final String macAddr = Util.getMacAddr();
+        if(!macAddr.equals("")){
+            DocumentReference notifyRef = db.collection("notifications").document(macAddr);
+            notifyRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if(task.isSuccessful()){
+                        Log.d(TAG, "onComplete:the notification task was successful " + macAddr);
+                        DocumentSnapshot document = task.getResult();
+                        if(document.exists()){
+                            boolean result = document.getBoolean("notified");
+                            Log.d(TAG, "onComplete: result "+  result);
+                            if(result) {
+                                Log.d(TAG, "onComplete: showing notification");
+                                NotificationUtils.alertUser(context);
+                            }
+                        }
+                        }
+                    else {
+                        Log.d(TAG, "the notification task was not successful");
                     }
-                });
-            }catch (Exception ex){
-                System.out.println("exception ===============> adding contactedPersons");
-                System.out.println(ex.getMessage());
-            }
-            }
+
+                }
+            });
+        }
+
+    }
+
+    @Override
+    public void turnOffNotification() {
+        final String macAddr = Util.getMacAddr();
+        if(!macAddr.equals("")){
+            DocumentReference notifyRef = db.collection("notifications").document(macAddr);
+            notifyRef.update("notified", false).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    Log.d(TAG, "Notification officially removed!");
+                }
+            })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w(TAG, "Error removing notification", e);
+                        }
+                    });
 
 
         }
+
+    }
+
+}
 
 
 

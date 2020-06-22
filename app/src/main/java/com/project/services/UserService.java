@@ -1,6 +1,7 @@
 package com.project.services;
 
 import android.app.Activity;
+import android.content.Context;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.project.models.DeviceAppearance;
@@ -20,4 +21,8 @@ public interface UserService {
     public boolean isUsingTheApp(String macAddr);
 
     public void addContactedDevice(DeviceAppearance dev);
+
+    public void notificationIsReady(Context context);
+
+    public void turnOffNotification();
 }
