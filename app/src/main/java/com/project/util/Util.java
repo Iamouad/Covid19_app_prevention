@@ -1,11 +1,15 @@
 package com.project.util;
 
+import android.content.Context;
 import android.content.Intent;
+import android.text.format.DateFormat;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -15,10 +19,13 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.project.FormulaireActivity;
 import com.project.HomeActivity;
 import com.project.MainActivity;
+import com.project.MapsActivity;
 import com.project.models.DeviceAppearance;
 import java.net.NetworkInterface;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 public class Util {
 
@@ -68,7 +75,8 @@ public class Util {
                 }
 
                 if (res1.length() > 0) {
-                    res1.deleteCharAt(res1.length() - 2);
+                    //raha kanate 2 darnaha 3
+                    res1.deleteCharAt(res1.length() - 3);
                 }
                 return res1.toString();
             }
@@ -97,6 +105,21 @@ public class Util {
                 return dev;
         }
         return null;
+    }
+
+    //Pass context and latLng to fucntion to open map to the location of contact
+    public static void openMap(Context context, LatLng latLng,long firstContact,long lastContact){
+        long interv=(long)(lastContact-firstContact)/60;
+        Intent intent=new Intent(context, MapsActivity.class);
+        Calendar cal = Calendar.getInstance(Locale.ENGLISH);
+        cal.setTimeInMillis(firstContact * 1L);
+        String date = DateFormat.format("dd-MM-yyyy hh:mm:ss", cal).toString();
+        Log.d("pezones",date);
+        intent.putExtra("latitude",latLng.latitude);
+        intent.putExtra("longitude",latLng.longitude);
+        intent.putExtra("interval",interv);
+        intent.putExtra("firstContact",date);//timestamp
+        context.startActivity(intent);
     }
 
 }
