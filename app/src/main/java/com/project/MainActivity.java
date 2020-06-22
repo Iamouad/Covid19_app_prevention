@@ -15,19 +15,17 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.project.models.User;
 import com.project.repositories.UserRepository;
-import com.project.sync.NotificationReminder;
 import com.project.sync.ReminderUtilities;
 
 public class MainActivity extends AppCompatActivity {
     private UserRepository userRepository;
     private static final String REMINDER_JOB_TAG = "scan_tag";
-    private static final String NOTIFIER_JOB_TAG = "notifier_tag";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ReminderUtilities.scheduleReminder(this, REMINDER_JOB_TAG);
+        //ReminderUtilities.scheduleReminder(this, REMINDER_JOB_TAG);
         //NotificationReminder.scheduleReminder(this, NOTIFIER_JOB_TAG);
         Toast.makeText(this, "made it to Main", Toast.LENGTH_SHORT).show();
 

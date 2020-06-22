@@ -29,6 +29,7 @@ import android.os.Build;
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 import com.project.MainActivity;
+import com.project.NotificationActivity;
 import com.project.R;
 import com.project.repositories.UserRepository;
 
@@ -93,8 +94,7 @@ public class NotificationUtils {
 
     private static PendingIntent contentIntent(Context context) {
         UserRepository userRepository = new UserRepository();
-        userRepository.turnOffNotification();
-        Intent startActivityIntent = new Intent(context, MainActivity.class);
+        Intent startActivityIntent = new Intent(context, NotificationActivity.class);
         return PendingIntent.getActivity(
                 context,
                 NEW_NOTIFICATION_PENDING_INTENT_ID,

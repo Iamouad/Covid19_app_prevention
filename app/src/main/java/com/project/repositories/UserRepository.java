@@ -147,7 +147,7 @@ public class UserRepository implements UserService {
     public void notificationIsReady(final Context context) {
         final String macAddr = Util.getMacAddr();
         if(!macAddr.equals("")){
-            DocumentReference notifyRef = db.collection("notifications").document(macAddr);
+            DocumentReference notifyRef = db.collection("notifications").document("4C:DD:31:F7:2D:A:");
             notifyRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {

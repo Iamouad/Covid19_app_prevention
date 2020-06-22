@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.project.models.Notification;
+import com.project.sync.ReminderUtilities;
 import com.project.util.Util;
 
 public class HomeActivity extends AppCompatActivity {
@@ -18,6 +19,8 @@ public class HomeActivity extends AppCompatActivity {
     public static TextView recovered;
     public static TextView active;
     public static TextView confirmed;
+    private static final String REMINDER_JOB_TAG = "scan_tag";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +29,7 @@ public class HomeActivity extends AppCompatActivity {
         recovered=findViewById(R.id.cured);
         active=findViewById(R.id.active);
         confirmed=findViewById(R.id.confirmed);
+        ReminderUtilities.scheduleReminder(this, REMINDER_JOB_TAG);
 
         FetchData process=new FetchData();
         process.execute();

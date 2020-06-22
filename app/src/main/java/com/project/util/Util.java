@@ -76,7 +76,8 @@ public class Util {
 
                 if (res1.length() > 0) {
                     //raha kanate 2 darnaha 3
-                    res1.deleteCharAt(res1.length() - 3);
+                    //kheliha 2 hhhhhh kherbeqtu lina l7sab
+                    res1.deleteCharAt(res1.length() - 2);
                 }
                 return res1.toString();
             }

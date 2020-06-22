@@ -22,6 +22,7 @@ import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.project.repositories.UserRepository;
 import com.project.util.Util;
 
 import java.util.ArrayList;
@@ -56,8 +57,10 @@ public class NotificationActivity extends AppCompatActivity {
         ids = new ArrayList<>();
         cords = new ArrayList<>();
         firstAppears = new ArrayList<>();
+        //reset notification field in database
+        new UserRepository().turnOffNotification();
 
-       // MyMacAdress= Util.getMacAddr();
+        // MyMacAdress= Util.getMacAddr();
 
 
         db.collection("notifications")
