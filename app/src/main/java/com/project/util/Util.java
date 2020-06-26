@@ -120,6 +120,7 @@ public class Util {
         intent.putExtra("longitude",latLng.longitude);
         intent.putExtra("interval",interv);
         intent.putExtra("firstContact",date);//timestamp
+        Log.d("failaa","Inside Open Map");
         context.startActivity(intent);
     }
 

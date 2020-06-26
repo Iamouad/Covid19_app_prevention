@@ -1,6 +1,7 @@
 package com.project;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,6 +53,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.image_row.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("failaa","Inside Adapter");
                 Util.openMap(v.getContext(),cords.get(position),firstAppears.get(position),0);
 
             }
