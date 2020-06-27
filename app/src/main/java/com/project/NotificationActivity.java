@@ -41,7 +41,7 @@ public class NotificationActivity extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     String TAG="notif";
     ProgressBar progressBar;
-    final String MyMacAdress = "MAC1";
+     String MyMacAdress ;
 
 
 
@@ -60,7 +60,7 @@ public class NotificationActivity extends AppCompatActivity {
         //reset notification field in database
         new UserRepository().turnOffNotification();
 
-        // MyMacAdress= Util.getMacAddr();
+         MyMacAdress= Util.getMacAddr();
 
 
         db.collection("notifications")
@@ -70,49 +70,60 @@ public class NotificationActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(NotificationActivity.this, "Nice", Toast.LENGTH_SHORT).show();
+                             ids = (ArrayList<String>) task.getResult().get("infectors");
 
-                           // title.add(task.getResult().get("title").toString());
-                            //body.add(task.getResult().get("body").toString());
-                            ids = (ArrayList<String>) task.getResult().get("infectors");
+                             if(ids==null)
+                             {
+                                 progressBar.setVisibility(View.INVISIBLE);
+                                 Toast.makeText(NotificationActivity.this, "Vous n'avez Aucune Notification", Toast.LENGTH_SHORT).show();
 
-                            Toast.makeText(NotificationActivity.this, ids.toString(), Toast.LENGTH_SHORT).show();
-                            db.collection("ContactedPersons")
-                                    .document(MyMacAdress)
-                                    .collection("Contacts")
-                                    .whereIn("macAddress", ids)
-                                    .get()
-                                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                            if (task.isSuccessful()) {
+                             }
 
-                                                for (QueryDocumentSnapshot document : task.getResult()) {
-                                                    double lat = (double) document.get("latitude");
-                                                    double longt = (double) document.get("longitude");
-                                                    LatLng latLng=new LatLng(lat,longt);
-                                                    cords.add(latLng);
-                                                  //   Date expiry = new Date(Long.parseLong(document.get("firstAppearance").toString()));
-                                                    Calendar cal = Calendar.getInstance(Locale.ENGLISH);
-                                                    cal.setTimeInMillis(Long.parseLong(document.get("firstAppearance").toString()) * 1L);
-                                                    String date = DateFormat.format("dd-MM-yyyy hh:mm:ss", cal).toString();
-                                                    body.add(date);
+                            if(ids.size()<1)
+                            {
+                                progressBar.setVisibility(View.INVISIBLE);
+                                Toast.makeText(NotificationActivity.this, "Vous n'avez Aucune Notification", Toast.LENGTH_SHORT).show();
+                            }
 
-                                                    firstAppears.add(Long.parseLong(document.get("firstAppearance").toString()));
-                                                    progressBar.setVisibility(View.INVISIBLE);
-                                                    MyAdapter myAdapter = new MyAdapter(getApplicationContext(),title,body,ids,images,cords,firstAppears);
-                                                    recyclerView.setAdapter(myAdapter);
-                                                    recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                            else
+                            {
+                                db.collection("ContactedPersons")
+                                        .document(MyMacAdress)
+                                        .collection("Contacts")
+                                        .whereIn("macAddress", ids)
+                                        .get()
+                                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                                if (task.isSuccessful()) {
+
+                                                    for (QueryDocumentSnapshot document : task.getResult()) {
+                                                        double lat = (double) document.get("latitude");
+                                                        double longt = (double) document.get("longitude");
+                                                        LatLng latLng=new LatLng(lat,longt);
+                                                        cords.add(latLng);
+                                                        //   Date expiry = new Date(Long.parseLong(document.get("firstAppearance").toString()));
+                                                        Calendar cal = Calendar.getInstance(Locale.ENGLISH);
+                                                        cal.setTimeInMillis(Long.parseLong(document.get("firstAppearance").toString()) * 1L);
+                                                        String date = DateFormat.format("dd-MM-yyyy hh:mm:ss", cal).toString();
+                                                        body.add(date);
+
+                                                        firstAppears.add(Long.parseLong(document.get("firstAppearance").toString()));
+                                                        progressBar.setVisibility(View.INVISIBLE);
+                                                        MyAdapter myAdapter = new MyAdapter(getApplicationContext(),title,body,ids,images,cords,firstAppears);
+                                                        recyclerView.setAdapter(myAdapter);
+                                                        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                                                     }
-                                            } else {
-                                                Log.d("pezones", "Error getting documents: ", task.getException());
+                                                } else {
+                                                    Toast.makeText(NotificationActivity.this, "Une Erreur c'est produite !", Toast.LENGTH_SHORT).show();
+                                                }
                                             }
-                                        }
-                                    });
+                                        });
 
+                             }
 
                         } else {
-                            Toast.makeText(NotificationActivity.this, "Shit", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(NotificationActivity.this, "Error While Fetching Data! ", Toast.LENGTH_SHORT).show();
 
                             Log.d(TAG, "Error getting documents.", task.getException());
                         }
