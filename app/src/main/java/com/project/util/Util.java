@@ -20,6 +20,7 @@ import com.project.FormulaireActivity;
 import com.project.HomeActivity;
 import com.project.MainActivity;
 import com.project.MapsActivity;
+import com.project.MapsActivity2;
 import com.project.models.DeviceAppearance;
 import java.net.NetworkInterface;
 import java.util.Calendar;
@@ -31,10 +32,10 @@ public class Util {
 
     private static FirebaseFirestore mFirestore;
     private boolean test=false;
+    public static String MacAdd;
     public static void updateUi(final AppCompatActivity context, FirebaseUser user){
-        /*if(user != null){
-            Intent intent = new Intent(context, FormulaireActivity.class);
->>>>>>> d30ef70308b363cb4667ccb762010e939564d638
+       /* if(user != null){
+            Intent intent = new Intent(context, HomeActivity.class);
             context.startActivity(intent);
         }*/
         if(user != null){
@@ -47,10 +48,12 @@ public class Util {
                         Log.d("testFirebase","lol");
                         Intent intent = new Intent(context, HomeActivity.class);
                         context.startActivity(intent);
+                        MacAdd =documentSnapshot.get("macAddress").toString();
                     }
                     else{
                         Intent intent = new Intent(context, FormulaireActivity.class);
                         context.startActivity(intent);
+                        MacAdd =documentSnapshot.get("macAddress").toString();
                     }
                 }
             });
@@ -111,7 +114,7 @@ public class Util {
     //Pass context and latLng to fucntion to open map to the location of contact
     public static void openMap(Context context, LatLng latLng,long firstContact,long lastContact){
         long interv=(long)(lastContact-firstContact)/60;
-        Intent intent=new Intent(context, MapsActivity.class);
+        Intent intent=new Intent(context, MapsActivity2.class);
         Calendar cal = Calendar.getInstance(Locale.ENGLISH);
         cal.setTimeInMillis(firstContact * 1L);
         String date = DateFormat.format("dd-MM-yyyy hh:mm:ss", cal).toString();
@@ -120,6 +123,7 @@ public class Util {
         intent.putExtra("longitude",latLng.longitude);
         intent.putExtra("interval",interv);
         intent.putExtra("firstContact",date);//timestamp
+        Log.d("failaa","Inside Open Map");
         context.startActivity(intent);
     }
 
