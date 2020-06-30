@@ -62,7 +62,7 @@ public class NotificationActivity extends AppCompatActivity {
 
          MyMacAdress= Util.getMacAddr();
 
-
+        Toast.makeText(this, MyMacAdress, Toast.LENGTH_SHORT).show();
         db.collection("notifications")
                 .document(MyMacAdress)
                 .get()
@@ -106,6 +106,7 @@ public class NotificationActivity extends AppCompatActivity {
                                                         Calendar cal = Calendar.getInstance(Locale.ENGLISH);
                                                         cal.setTimeInMillis(Long.parseLong(document.get("firstAppearance").toString()) * 1L);
                                                         String date = DateFormat.format("dd-MM-yyyy hh:mm:ss", cal).toString();
+                                                        Log.d("haha",date);
                                                         body.add(date);
 
                                                         firstAppears.add(Long.parseLong(document.get("firstAppearance").toString()));

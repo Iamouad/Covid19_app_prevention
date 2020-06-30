@@ -153,7 +153,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.02" />
+        app:layout_constraintGuide_percent="0.01" />
 
 
     <androidx.constraintlayout.widget.Guideline
@@ -161,7 +161,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.1" />
+        app:layout_constraintGuide_percent="0.13" />
 
 
     <androidx.constraintlayout.widget.Guideline
@@ -212,14 +212,14 @@
 
 
     <ImageView
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
 
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
 
         android:scaleType="fitStart"
 
 
-        android:src="@drawable/logo"
+        android:src="@drawable/app_logo"
         app:layout_constraintBottom_toTopOf="@+id/hor_uder_logo"
         app:layout_constraintEnd_toStartOf="@+id/ver_right_logo"
         app:layout_constraintStart_toStartOf="@+id/ver_left_logo"
@@ -316,7 +316,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.16" />
+        app:layout_constraintGuide_percent="0.19" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/hor_upon_profile"

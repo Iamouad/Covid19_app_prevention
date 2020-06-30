@@ -15,11 +15,18 @@
         tools:context=".FormulaireActivity">
 
         <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vertical_right_previous_ic2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.18" />
+
+        <androidx.constraintlayout.widget.Guideline
             android:id="@+id/hor_upon_dashboard2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.12" />
+            app:layout_constraintGuide_percent="0.16" />
 
         <TextView
             android:id="@+id/text3"
@@ -239,28 +246,18 @@
             app:layout_constraintGuide_percent="0.604" />
 
 
-        <ImageView
-            android:id="@+id/toggle"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:scaleType="fitStart"
-            app:srcCompat="@drawable/ic_toggle_button"
-            app:layout_constraintBottom_toTopOf="@+id/hor_uder_logo"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toRightOf="@id/vertical_left_activity"
-            app:layout_constraintRight_toLeftOf="@id/ver_right_toggle"
-            app:layout_constraintTop_toTopOf="@+id/hor_upon_logo" />
+
 
         <ImageView
             android:id="@+id/logo"
 
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
 
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
 
 
             android:scaleType="fitStart"
-            android:src="@drawable/logo"
+            android:src="@drawable/app_logo"
             app:layout_constraintBottom_toTopOf="@+id/hor_uder_logo"
             app:layout_constraintEnd_toStartOf="@+id/ver_right_logo"
             app:layout_constraintStart_toStartOf="@+id/ver_left_logo"
@@ -334,7 +331,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.05882353" />
+            app:layout_constraintGuide_percent="0.09" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/hor_upon_fieldsRequired"
