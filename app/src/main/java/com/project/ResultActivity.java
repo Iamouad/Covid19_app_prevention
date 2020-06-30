@@ -2,10 +2,12 @@ package com.project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
+import android.view.View;
 import android.widget.TextView;
 
 public class ResultActivity extends AppCompatActivity {
@@ -33,5 +35,10 @@ public class ResultActivity extends AppCompatActivity {
             textview.setText("Votre état ne semble pas préopcupant ou ne relève probablement pas du COVID 19 .");
         }
 
+    }
+
+    public void openHome(View view) {
+        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+        startActivity(intent);
     }
 }

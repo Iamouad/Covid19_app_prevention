@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.16" />
+        app:layout_constraintGuide_percent="0.02" />
 
 
     <androidx.constraintlayout.widget.Guideline
@@ -150,7 +150,7 @@
         android:layout_height="wrap_content"
 
         android:scaleType="fitStart"
-        android:src="@drawable/logo"
+        android:src="@drawable/app_logo"
         app:layout_constraintHorizontal_bias="0.5"
 
         app:layout_constraintLeft_toRightOf="@id/ver_left_logo"
@@ -303,34 +303,17 @@
 
         android:gravity="center_vertical"
         android:paddingLeft="20dp"
-        android:text="CREER UN COMPTE"
+        android:text="Register"
         android:textColor="#306386"
         android:textSize="@dimen/normal"
         app:layout_constraintBottom_toTopOf="@id/hor_under_apply"
-        app:layout_constraintLeft_toRightOf="@id/vertical_left_activity"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_right_submit_gl"
 
 
-        app:layout_constraintRight_toLeftOf="@id/vertical_right_apply"
-        app:layout_constraintTop_toBottomOf="@id/hor_upon_apply"
-
-        />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        app:srcCompat="@drawable/ic_go"
-        app:layout_constraintBottom_toTopOf="@id/signIn"
-        app:layout_constraintHorizontal_bias="0.112"
-
-        app:layout_constraintLeft_toRightOf="@id/signIn"
-        app:layout_constraintRight_toLeftOf="@id/signIn"
-        app:layout_constraintTop_toBottomOf="@id/signIn"
-
-        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/vertical_left_activity"
+        app:layout_constraintTop_toBottomOf="@id/hor_upon_apply" />
 
 
-        />
 
 
     <androidx.appcompat.widget.AppCompatImageView
